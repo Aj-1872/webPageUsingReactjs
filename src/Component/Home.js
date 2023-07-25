@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Home = () => {
+const Home = (props) => {
     return (
-        <div id='Home' className='w-full h-[90vh] ' >
+        <div id='Home' className='w-full h-[90vh]  ' >
         <img src="https://images2.alphacoders.com/891/891889.jpg" alt="/" 
-        className="w-full h-full object-cover "
+        className={`w-full h-full object-cover  ${props.opacity ? 'opacity-30' : ' '}`}
         
         />
             <div className=' max-w-[1140px] m-auto'>

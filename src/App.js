@@ -14,34 +14,46 @@ import { useState } from 'react';
 
 function App() {
 
-  const [ mode, setMode ] = useState('bg-black');
+  const [ bgMode, setBgMode ] = useState('white');
+  const [textMode, setTextMode] = useState ('black');
+  const [opacity,setOpacity] = useState(false);
 
   const handleMode = () => {
 
-    if(mode==='bg-black'){
+    
+    if(bgMode==='black'){ 
+      setBgMode('white')
 
-      setMode('bg-white')
     }
     else {
-      setMode('bg-black')
+      setBgMode('black')
     }
+
+    if(textMode==='black'){
+      setTextMode('white')
+    }
+    else {
+      setTextMode('black')
+    }
+
+    setOpacity(!opacity);
+    
 
   }
   
- 
+  
+  
   return (
-    <div className={mode} >
+    <div className={`bg-${bgMode}`} >
 
-      <Topbar mode={mode} handleMode={handleMode} />
-      <Navbar />
-      <Home />
-      <Acitvities />
+      <Topbar bgMode={bgMode} textMode={textMode} handleMode={handleMode} />
+      <Navbar textMode={textMode} opacity={opacity} />
+      <Home opacity={opacity} />
+      <Acitvities opacity={opacity} bgMode={bgMode}/>
       <Booking />
       <Gallery />
       <Contact />
       <Footer />
-
-
     </div>
   );
 }

@@ -4,17 +4,18 @@ import { BsChatSquareDots } from 'react-icons/bs'
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa'
 
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const [nav,setNav] = useState(false);
 
     const handleNav = ()=>{
         setNav(!nav);
     }
+    console.log(props.opacity);
     return (
 
         <div>
-        <div className='w-full min-h-[50px] flex justify-between items-center absolute z-10 text-white bg-gray-700/80' >
+        <div className={`w-full min-h-[50px] flex justify-between items-center absolute z-10 text-${props.textMode} ${props.opacity ? 'bg-gray-700/80':'bg-gray-500/80'}`} >
         <ul className='hidden sm:flex px-4'>
         <li>
         <a href="/">Home</a>
