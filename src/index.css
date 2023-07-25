@@ -1,0 +1,38 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+:root {
+  --primary-dark: #5651e5;
+  --primary-light: #709dff;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/index.css */
+/* Paste the entire content of your tailwind.css or tailwind.min.css here */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+li {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  background: linear-gradient(to right, #5651e5, #709dff);
+  color: white;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
