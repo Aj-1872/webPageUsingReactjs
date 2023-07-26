@@ -13,49 +13,35 @@ import { useState } from 'react';
 
 
 function App() {
+  // State to manage the background color mode ('black' or 'white')
+  const [bgMode, setBgMode] = useState('bg-white');
 
-  const [ bgMode, setBgMode ] = useState('white');
-  const [textMode, setTextMode] = useState ('black');
-  const [opacity,setOpacity] = useState(false);
+  // State to manage the text color mode ('black' or 'white')
+  const [textMode, setTextMode] = useState('black');
 
+  // State to manage the opacity (transparency) of certain components
+  const [opacity, setOpacity] = useState(false);
+
+  // Function to handle mode change (toggle between 'black' and 'white')
   const handleMode = () => {
-
-    
-    if(bgMode==='black'){ 
-      setBgMode('white')
-
-    }
-    else {
-      setBgMode('black')
-    }
-
-    if(textMode==='black'){
-      setTextMode('white')
-    }
-    else {
-      setTextMode('black')
-    }
-
-    setOpacity(!opacity);
-    
-
-  }
-  
-  
+    setBgMode((prevMode) => (prevMode === 'bg-white' ? 'bg-black' : 'bg-white'));
+    setTextMode((prevMode) => (prevMode === 'white' ? 'black' : 'white'));
+    setOpacity((prevOpacity) => !prevOpacity);
+  };
   
   return (
-    <div className={`bg-${bgMode}`} >
-
-      <Topbar bgMode={bgMode} textMode={textMode} handleMode={handleMode} />
+    // Use template literals to apply the background mode class
+    <div className={`${bgMode}`}>
+      <Topbar textMode={textMode} handleMode={handleMode} />
       <Navbar textMode={textMode} opacity={opacity} />
       <Home opacity={opacity} />
-      <Acitvities opacity={opacity} bgMode={bgMode}/>
-      <Booking />
-      <Gallery />
-      <Contact />
+      <Acitvities opacity={opacity} />
+      <Booking bgMode={bgMode} textMode={textMode}/>
+      <Gallery textMode={textMode} />
+      <Contact textMode={textMode}   />
       <Footer />
     </div>
   );
-}
+  }
 
 export default App;

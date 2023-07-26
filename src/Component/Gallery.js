@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Gallery = () => {
+const Gallery = (props) => {
     return (
         <div id='gallery' className='max-w-[1140px] m-auto w-full px-4 py-16'>
-            <h2 className='text-center text-gray-700 p-4'>Gallery</h2>
+            <h2 className={`text-center text-${props.textMode} p-4`}>Gallery</h2>
             <div className='grid sm:grid-cols-5 gap-4'>
                 <div className='sm:col-span-3 col-span-2 row-span-2'>
                 <img className='w-full h-full object-cover' src="https://d22ir9aoo7cbf6.cloudfront.net/wp-content/uploads/sites/4/2019/05/Thomas-Beach-Uluwatu-Bali.jpg" alt="" />
